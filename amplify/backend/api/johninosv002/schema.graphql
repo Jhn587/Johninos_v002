@@ -1,3 +1,7 @@
+type SomethingElse @model @auth(rules: [{allow: public}]) {
+  id: ID!
+}
+
 type OrderStatus @model @auth(rules: [{allow: public}]) {
   id: ID!
   orderId: String
@@ -5,3 +9,4 @@ type OrderStatus @model @auth(rules: [{allow: public}]) {
   storeId: String
   order: AWSJSON
 }
+ 
