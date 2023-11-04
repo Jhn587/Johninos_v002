@@ -1,0 +1,7 @@
+type OrderStatus @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  orderId: String
+  customerId: String
+  storeId: String
+  order: AWSJSON
+}
