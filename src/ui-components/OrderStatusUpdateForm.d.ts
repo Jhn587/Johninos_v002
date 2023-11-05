@@ -6,7 +6,6 @@
 
 import * as React from "react";
 import { GridProps, TextAreaFieldProps, TextFieldProps } from "@aws-amplify/ui-react";
-import { OrderStatus } from "../API.ts";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -27,12 +26,14 @@ export declare type OrderStatusUpdateFormInputValues = {
     customerId?: string;
     storeId?: string;
     order?: string;
+    orderStatus?: string;
 };
 export declare type OrderStatusUpdateFormValidationValues = {
     orderId?: ValidationFunction<string>;
     customerId?: ValidationFunction<string>;
     storeId?: ValidationFunction<string>;
     order?: ValidationFunction<string>;
+    orderStatus?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type OrderStatusUpdateFormOverridesProps = {
@@ -41,12 +42,13 @@ export declare type OrderStatusUpdateFormOverridesProps = {
     customerId?: PrimitiveOverrideProps<TextFieldProps>;
     storeId?: PrimitiveOverrideProps<TextFieldProps>;
     order?: PrimitiveOverrideProps<TextAreaFieldProps>;
+    orderStatus?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type OrderStatusUpdateFormProps = React.PropsWithChildren<{
     overrides?: OrderStatusUpdateFormOverridesProps | undefined | null;
 } & {
     id?: string;
-    orderStatus?: OrderStatus;
+    orderStatus?: any;
     onSubmit?: (fields: OrderStatusUpdateFormInputValues) => OrderStatusUpdateFormInputValues;
     onSuccess?: (fields: OrderStatusUpdateFormInputValues) => void;
     onError?: (fields: OrderStatusUpdateFormInputValues, errorMessage: string) => void;

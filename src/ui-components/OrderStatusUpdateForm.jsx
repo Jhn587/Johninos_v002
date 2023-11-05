@@ -34,11 +34,15 @@ export default function OrderStatusUpdateForm(props) {
     customerId: "",
     storeId: "",
     order: "",
+    orderStatus: "",
   };
   const [orderId, setOrderId] = React.useState(initialValues.orderId);
   const [customerId, setCustomerId] = React.useState(initialValues.customerId);
   const [storeId, setStoreId] = React.useState(initialValues.storeId);
   const [order, setOrder] = React.useState(initialValues.order);
+  const [orderStatus, setOrderStatus] = React.useState(
+    initialValues.orderStatus
+  );
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = orderStatusRecord
@@ -52,6 +56,7 @@ export default function OrderStatusUpdateForm(props) {
         ? cleanValues.order
         : JSON.stringify(cleanValues.order)
     );
+    setOrderStatus(cleanValues.orderStatus);
     setErrors({});
   };
   const [orderStatusRecord, setOrderStatusRecord] =
@@ -76,6 +81,7 @@ export default function OrderStatusUpdateForm(props) {
     customerId: [],
     storeId: [],
     order: [{ type: "JSON" }],
+    orderStatus: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -107,6 +113,7 @@ export default function OrderStatusUpdateForm(props) {
           customerId: customerId ?? null,
           storeId: storeId ?? null,
           order: order ?? null,
+          orderStatus: orderStatus ?? null,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -171,6 +178,7 @@ export default function OrderStatusUpdateForm(props) {
               customerId,
               storeId,
               order,
+              orderStatus,
             };
             const result = onChange(modelFields);
             value = result?.orderId ?? value;
@@ -198,6 +206,7 @@ export default function OrderStatusUpdateForm(props) {
               customerId: value,
               storeId,
               order,
+              orderStatus,
             };
             const result = onChange(modelFields);
             value = result?.customerId ?? value;
@@ -225,6 +234,7 @@ export default function OrderStatusUpdateForm(props) {
               customerId,
               storeId: value,
               order,
+              orderStatus,
             };
             const result = onChange(modelFields);
             value = result?.storeId ?? value;
@@ -252,6 +262,7 @@ export default function OrderStatusUpdateForm(props) {
               customerId,
               storeId,
               order: value,
+              orderStatus,
             };
             const result = onChange(modelFields);
             value = result?.order ?? value;
@@ -266,6 +277,34 @@ export default function OrderStatusUpdateForm(props) {
         hasError={errors.order?.hasError}
         {...getOverrideProps(overrides, "order")}
       ></TextAreaField>
+      <TextField
+        label="Order status"
+        isRequired={false}
+        isReadOnly={false}
+        value={orderStatus}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              orderId,
+              customerId,
+              storeId,
+              order,
+              orderStatus: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.orderStatus ?? value;
+          }
+          if (errors.orderStatus?.hasError) {
+            runValidationTasks("orderStatus", value);
+          }
+          setOrderStatus(value);
+        }}
+        onBlur={() => runValidationTasks("orderStatus", orderStatus)}
+        errorMessage={errors.orderStatus?.errorMessage}
+        hasError={errors.orderStatus?.hasError}
+        {...getOverrideProps(overrides, "orderStatus")}
+      ></TextField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}

@@ -6,6 +6,4 @@
 
 export { default as OrderStatusCreateForm } from "./OrderStatusCreateForm";
 export { default as OrderStatusUpdateForm } from "./OrderStatusUpdateForm";
-export { default as SomethingElseCreateForm } from "./SomethingElseCreateForm";
-export { default as SomethingElseUpdateForm } from "./SomethingElseUpdateForm";
 export { default as studioTheme } from "./studioTheme";
