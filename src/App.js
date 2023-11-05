@@ -8,9 +8,7 @@ import {
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
         <OrderStatusCreateForm />
-      </header>
     </div>
   );
 }
