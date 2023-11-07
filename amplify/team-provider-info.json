@@ -10,6 +10,22 @@
       "StackName": "amplify-johninosv002-staging-181244",
       "StackId": "arn:aws:cloudformation:us-east-1:086207020268:stack/amplify-johninosv002-staging-181244/c05ac620-7b3d-11ee-b328-12b93046038d",
       "AmplifyAppId": "dzaida4uxzfgl"
+    },
+    "categories": {
+      "function": {
+        "DynamoDBTrigger": {
+          "test": "env",
+          "deploymentBucketName": "amplify-johninosv002-staging-181244-deployment",
+          "s3Key": "amplify-builds/DynamoDBTrigger-616456546f6f42544937-build.zip"
+        },
+        "JohninosBackendMonolith": {
+          "deploymentBucketName": "amplify-johninosv002-staging-181244-deployment",
+          "s3Key": "amplify-builds/JohninosBackendMonolith-2b6c453830585437614c-build.zip"
+        }
+      },
+      "api": {
+        "johninosv002": {}
+      }
     }
   }
 }

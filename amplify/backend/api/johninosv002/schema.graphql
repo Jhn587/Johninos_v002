@@ -6,4 +6,5 @@ type OrderStatus @model @auth(rules: [{allow: public}]) {
   order: AWSJSON
   orderStatus: String
 }
+
  

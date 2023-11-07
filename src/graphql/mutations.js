@@ -1,45 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createSomethingElse = /* GraphQL */ `
-  mutation CreateSomethingElse(
-    $input: CreateSomethingElseInput!
-    $condition: ModelSomethingElseConditionInput
-  ) {
-    createSomethingElse(input: $input, condition: $condition) {
-      id
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
-export const updateSomethingElse = /* GraphQL */ `
-  mutation UpdateSomethingElse(
-    $input: UpdateSomethingElseInput!
-    $condition: ModelSomethingElseConditionInput
-  ) {
-    updateSomethingElse(input: $input, condition: $condition) {
-      id
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
-export const deleteSomethingElse = /* GraphQL */ `
-  mutation DeleteSomethingElse(
-    $input: DeleteSomethingElseInput!
-    $condition: ModelSomethingElseConditionInput
-  ) {
-    deleteSomethingElse(input: $input, condition: $condition) {
-      id
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
 export const createOrderStatus = /* GraphQL */ `
   mutation CreateOrderStatus(
     $input: CreateOrderStatusInput!
@@ -51,6 +12,7 @@ export const createOrderStatus = /* GraphQL */ `
       customerId
       storeId
       order
+      orderStatus
       createdAt
       updatedAt
       __typename
@@ -68,6 +30,7 @@ export const updateOrderStatus = /* GraphQL */ `
       customerId
       storeId
       order
+      orderStatus
       createdAt
       updatedAt
       __typename
@@ -85,6 +48,7 @@ export const deleteOrderStatus = /* GraphQL */ `
       customerId
       storeId
       order
+      orderStatus
       createdAt
       updatedAt
       __typename

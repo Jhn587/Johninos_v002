@@ -21,5 +21,96 @@
       "providerPlugin": "awscloudformation",
       "service": "AppSync"
     }
+  },
+  "function": {
+    "DynamoDBTrigger": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "johninosv002"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "JohninosBackendMonolith": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput"
+          ],
+          "category": "api",
+          "resourceName": "johninosv002"
+        },
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "johninosv002"
+        },
+        {
+          "attributes": [
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "DynamoDBTrigger"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_DynamoDBTrigger_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "DynamoDBTrigger"
+        }
+      ]
+    },
+    "AMPLIFY_function_DynamoDBTrigger_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "DynamoDBTrigger"
+        }
+      ]
+    },
+    "AMPLIFY_function_DynamoDBTrigger_test": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "DynamoDBTrigger"
+        }
+      ]
+    },
+    "AMPLIFY_function_JohninosBackendMonolith_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "JohninosBackendMonolith"
+        }
+      ]
+    },
+    "AMPLIFY_function_JohninosBackendMonolith_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "JohninosBackendMonolith"
+        }
+      ]
+    }
   }
 }

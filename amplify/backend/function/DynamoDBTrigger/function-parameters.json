@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "api": {
+      "johninosv002": [
+        "Query",
+        "Mutation",
+        "Subscription"
+      ]
+    },
+    "storage": {
+      "OrderStatus:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "test",
+      "environmentVariableName": "test"
+    }
+  ]
+}
